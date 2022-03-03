@@ -1,6 +1,6 @@
 import { ArrowDropDown } from '@mui/icons-material'
 import React, { useState } from 'react'
-import {ICustomSelect} from '../../interfaces/Components.interfeces/CustomSelect.interfaces/CustomSelect.interface'
+import {ICustomSelect} from '../../interfaces/Components.interfaces/CustomSelect.interfaces/CustomSelect.interface'
 import './index.css'
 
 const CustomSelect = ({OptionsBD,onlyIcon, defaultOption,width}:ICustomSelect) => {
