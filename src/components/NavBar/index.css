@@ -1,0 +1,88 @@
+/* ====================INICIO===================== */
+/* ================HEADER NAVBAR================== */
+    .header__navBar{
+        display: flex;
+        background-color: var(--primary-color);
+        height: 100%;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+    }
+    /* ====================INICIO===================== */
+    /* ==================NAVBAR ITEM================== */
+        .navBar__item{
+        height: 100%;
+        }
+
+        .navBar__item:last-child{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        /* ====================INICIO===================== */
+        /* ==================LABEL MODE=================== */
+
+            .navBar__item:last-child > .label__toggle-mode{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                height: 100%;
+                cursor: pointer;
+            }
+
+            .navBar__item:last-child > .label__toggle-mode > #icono{
+                transition: all ease 0.4s;
+                width: 30px;
+                height: 30px;
+                color: var(--text-color);
+            }
+
+            .navBar__item:last-child > .label__toggle-mode > P{
+                transition: all ease 0.4s;
+                color: var(--text-color);
+                user-select: none;
+            }
+
+            .navBar__item:last-child > .label__toggle-mode:hover > #icono{
+                opacity: 0.7;
+            }
+
+            .navBar__item:last-child > .label__toggle-mode:active > #icono{
+                transition: all ease 1s;
+            }
+
+            .navBar__item:last-child > .label__toggle-mode:hover > p{
+                opacity: 0.7;
+            }
+
+
+        /* ======================FIN====================== */
+        /* ==================LABEL MODE=================== */
+        
+        /* ====================INICIO===================== */
+        /* ==================LABEL LANG=================== */
+            .navBar__item:last-child > .label__toggle-lang{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                height: 100%;
+            }
+
+            .navBar__item:last-child > .label__toggle-lang > P{
+                transition: all ease 0.4s;
+                color: var(--text-color);
+                user-select: none;
+            }
+
+            .navBar__item:last-child > .label__toggle-lang:hover > p{
+                opacity: 0.7;
+            }
+        /* ====================INICIO===================== */
+        /* ==================LABEL LANG=================== */
+
+    /* =======================FIN===================== */
+    /* ==================NAVBAR ITEM================== */
+
+/* =====================FIN======================= */
+/* ================HEADER NAVBAR================== */
+
+

@@ -1,13 +1,103 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+/* ====================INICIO===================== */
+/* =========CONDIGURACIONES INICIALES============= */
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  :root{
+    --primary-color: #0077FF;
+    --secondary-color: #003cff;
+    --text-color: #ffffff;
+    --background-color: #d4d4d4;
+  }
+/* ======================FIN====================== */
+/* =========CONDIGURACIONES INICIALES============= */
+
+/* ====================INICIO===================== */
+/* ====================HEADER===================== */
+
+  .App-header{
+    height: 75px;
+    display: flex;
+  }
+
+/* ======================FIN====================== */
+/* ====================HEADER===================== */
+
+/* ====================INICIO===================== */
+/* =====================BODY====================== */
+  body{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-y: auto;
+    transition: background ease 0.4s;
+  }
+  /* Inicio Scroll bar */
+    body::-webkit-scrollbar:vertical{
+      width: 10px;
+    }
+    body::-webkit-scrollbar {
+      -webkit-appearance: var(--background-color);
+    }
+    
+    body::-webkit-scrollbar-button:increment,body::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background-color: var(--secondary-color);
+      border-radius: 20px;
+      border: 2px solid var(--background-color);
+    }
+    body::-webkit-scrollbar-track {
+        border-radius: 10px;  
+    }
+    
+    
+  /* Fin Scroll bar */
+  body.dark{
+    --primary-color: #060F61;
+    --secondary-color: #00556e;
+    --text-color: #e7e7e7;
+    --background-color: #313131;
+  }
+/* ======================FIN====================== */
+/* =====================BODY====================== */
+
+/* ====================INICIO===================== */
+/* ==================RESPONSIVE=================== */
+
+@media screen and (min-width:1300px) {
+  .box-lg-1{width: 8.333333333333333%;}
+  .box-lg-2{width: 16.66666666666667%;}
+  .box-lg-3{width: 25%;}
+  .box-lg-4{width: 33.33333333333333%;}
+  .box-lg-5{width: 41.66666666666667%;}
+  .box-lg-6{width: 50%;}
+  .box-lg-7{width: 58.33333333333333%;}
+  .box-lg-8{width: 66.66666666666666%;}
+  .box-lg-9{width: 75%;}
+  .box-lg-10{width: 83.33333333333333%;}
+  .box-lg-11{width: 91.66666666666666%;}
+  .box-lg-12{width: 100%;}
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media screen and (max-width:1299px) and (min-width:989px) {
+  .box-md-1{width: 8.333333333333333%;}
+  .box-md-2{width: 16.66666666666667%;}
+  .box-md-3{width: 25%;}
+  .box-md-4{width: 33.33333333333333%;}
+  .box-md-5{width: 41.66666666666667%;}
+  .box-md-6{width: 50%;}
+  .box-md-7{width: 58.33333333333333%;}
+  .box-md-8{width: 66.66666666666666%;}
+  .box-md-9{width: 75%;}
+  .box-md-10{width: 83.33333333333333%;}
+  .box-md-11{width: 91.66666666666666%;}
+  .box-md-12{width: 100%;}
 }
+
+/* ======================FIN====================== */
+/* ==================RESPONSIVE=================== */
