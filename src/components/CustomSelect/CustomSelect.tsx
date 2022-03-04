@@ -1,19 +1,33 @@
 import { ArrowDropDown } from '@mui/icons-material'
 import React, { useState } from 'react'
-import {ICustomSelect} from '../../interfaces/Components.interfaces/CustomSelect.interfaces/CustomSelect.interface'
+import {ICustomSelect, IOptionsSelect} from '../../interfaces/Components.interfaces/CustomSelect.interfaces/CustomSelect.interface'
+import ObjectFunctions from '../../utils/ObjectFunctions'
 import './index.css'
 
-const CustomSelect = ({OptionsBD,onlyIcon, defaultOption,width}:ICustomSelect) => {
+const CustomSelect = ({OptionsBD, defaultOption,width}:ICustomSelect) => {
 
   const [open, setOpen] = useState(false)
+  const [optionSelected, setOptionSelected] = useState({} as IOptionsSelect)
 
+ 
   const toggleOptions=()=>{
-    const optionsBD=document.querySelector(".select-options") as HTMLElement
-    if (optionsBD.clientHeight===0) {
-        optionsBD.style.height = `${optionsBD.scrollHeight}px`;
-    } else {
-        optionsBD.style.height = `0px`;
+      const optionsBD=document.querySelector(".select-options") as HTMLElement
+      if (!open) {
+          optionsBD.style.height = `${optionsBD.scrollHeight}px`;
+          setOpen(true)
+      } else {
+          optionsBD.style.height = `0px`;
+          setOpen(false)
+      }
     }
+
+  const changeValue=(e:React.MouseEvent<HTMLDivElement>)=>{
+    const option=e.target as HTMLElement;
+    const data={
+        label:option.innerHTML,
+        value:option.getAttribute("itemID")
+    } as IOptionsSelect
+    setOptionSelected(data)
   }
 
   return (
@@ -21,22 +35,15 @@ const CustomSelect = ({OptionsBD,onlyIcon, defaultOption,width}:ICustomSelect) =
         <div className='CustomSelect__icon'>
             <ArrowDropDown />
         </div>
-        <div className='custom-select' onClick={()=>setOpen(!open)}>
-            <div className='select-item selected' itemID={'0'}>{defaultOption}</div>
+        <div className='custom-select' >
+            <div key={0} className='select-item selected' itemID={`${!ObjectFunctions.isEmpty(optionSelected) ? optionSelected.value:'0'}`}>{!ObjectFunctions.isEmpty(optionSelected) ?  optionSelected.label.toUpperCase: defaultOption}</div>
             <div className={`select-options`}>
                 {
-                    OptionsBD.map((option)=>(
-                        <div className='select-item' itemID={`${option.value}`}>{option.label}</div>
+                    OptionsBD.map((option,index)=>(
+                        <div key={index} className='select-item' itemID={`${option.value}`} onClick={(e)=>changeValue(e)}>{option.label.toUpperCase()}</div>
                     ))
                 }
             </div>
-            {/* <select style={{opacity:`${onlyIcon ? '0':''}`}} name="CustomSelect" id="CustomSelect">
-                {
-                    OptionsBD.map((item)=>(
-                        <option value={`${item.value}`}>{item.label.toUpperCase()}</option>
-                    ))
-                }
-            </select> */}
         </div>
     </label>
   )
