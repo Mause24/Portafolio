@@ -37,7 +37,12 @@ const NavBar = () => {
                 value: 'EN',
               },
             ]
-          } defaultOption={'SELECCIONE UNA OPCION'}  width={12}/>
+          } defaultOption={'SELECCIONE UNA OPCION'} 
+          value={{
+              label:'ES - ESPAÑOL',
+              value: 'ES',
+            }} 
+          width={12}/>
         </label>
       </div>
     </nav>

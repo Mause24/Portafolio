@@ -1,13 +1,12 @@
 import { ArrowDropDown } from '@mui/icons-material'
 import React, { useState } from 'react'
-import {ICustomSelect, IOptionsSelect} from '../../interfaces/Components.interfaces/CustomSelect.interfaces/CustomSelect.interface'
-import ObjectFunctions from '../../utils/ObjectFunctions'
+import {ICustomSelect, IOptionsSelect} from 'interfaces/Components.interfaces/CustomSelect.interfaces/CustomSelect.interface'
+import ObjectFunctions from 'utils/ObjectFunctions'
 import './index.css'
 
-const CustomSelect = ({OptionsBD, defaultOption,width}:ICustomSelect) => {
+const CustomSelect = ({OptionsBD, defaultOption,width, value}:ICustomSelect) => {
 
   const [open, setOpen] = useState(false)
-  const [optionSelected, setOptionSelected] = useState({} as IOptionsSelect)
 
  
   const toggleOptions=()=>{
@@ -27,8 +26,10 @@ const CustomSelect = ({OptionsBD, defaultOption,width}:ICustomSelect) => {
         label:option.innerHTML,
         value:option.getAttribute("itemID")
     } as IOptionsSelect
-    setOptionSelected(data)
+    value=data
   }
+
+  
 
   return (
     <label className={`CustomSelect__container box-lg-${width} ${open ? 'open':''}`} htmlFor='CustomSelect' onClick={()=>toggleOptions()}>
@@ -36,7 +37,7 @@ const CustomSelect = ({OptionsBD, defaultOption,width}:ICustomSelect) => {
             <ArrowDropDown />
         </div>
         <div className='custom-select' >
-            <div key={0} className='select-item selected' itemID={`${!ObjectFunctions.isEmpty(optionSelected) ? optionSelected.value:'0'}`}>{!ObjectFunctions.isEmpty(optionSelected) ?  optionSelected.label.toUpperCase: defaultOption}</div>
+            <div key={0} className='select-item selected' itemID={`${!ObjectFunctions.isEmpty(value) ? value.value:'0'}`}>{!ObjectFunctions.isEmpty(value) ?  value.label.toUpperCase(): defaultOption}</div>
             <div className={`select-options`}>
                 {
                     OptionsBD.map((option,index)=>(
