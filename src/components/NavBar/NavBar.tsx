@@ -8,11 +8,14 @@ const NavBar = () => {
   const [mode,setMode ] = useState(false)
   
   useEffect(() => {
+    const modeLabel=document.querySelector('.label__toggle-mode') as HTMLElement
     if (mode) {
       document.body.classList.add("dark")
     } else {
       document.body.classList.remove("dark")
     }
+    modeLabel.classList.add('animationRotate')
+    setTimeout(()=>modeLabel.classList.remove('animationRotate'),1000)
   },[mode])
   
 

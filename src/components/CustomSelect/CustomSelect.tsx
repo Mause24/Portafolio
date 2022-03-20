@@ -1,7 +1,7 @@
 import { ArrowDropDown } from '@mui/icons-material'
 import React, { useState } from 'react'
 import {ICustomSelect, IOptionsSelect} from 'interfaces/Components.interfaces/CustomSelect.interfaces/CustomSelect.interface'
-import ObjectFunctions from 'utils/ObjectFunctions'
+/* import ObjectFunctions from 'utils/ObjectFunctions' */
 import './index.css'
 
 const CustomSelect = ({OptionsBD, defaultOption,width, value}:ICustomSelect) => {
@@ -29,6 +29,10 @@ const CustomSelect = ({OptionsBD, defaultOption,width, value}:ICustomSelect) => 
     value=data
   }
 
+  const filterOptions=(e:React.ChangeEvent<HTMLInputElement>)=>{
+    console.log(e.target.value);
+  }
+
   
 
   return (
@@ -36,8 +40,9 @@ const CustomSelect = ({OptionsBD, defaultOption,width, value}:ICustomSelect) => 
         <div className='CustomSelect__icon'>
             <ArrowDropDown />
         </div>
-        <div className='custom-select' >
-            <div key={0} className='select-item selected' itemID={`${!ObjectFunctions.isEmpty(value) ? value.value:'0'}`}>{!ObjectFunctions.isEmpty(value) ?  value.label.toUpperCase(): defaultOption}</div>
+        <div className='custom-select' defaultValue={defaultOption}>
+            <input onFocus={
+                ()=>{setOpen(true);toggleOptions()}} type="text" onChange={(e)=>filterOptions(e)} />
             <div className={`select-options`}>
                 {
                     OptionsBD.map((option,index)=>(
